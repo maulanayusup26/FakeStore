@@ -32,4 +32,10 @@ class CartViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    fun clearCart() {
+        viewModelScope.launch {
+            repository.clearCart()
+        }
+    }
+
 }

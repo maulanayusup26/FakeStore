@@ -1,5 +1,6 @@
 package com.example.fakestore
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -44,12 +45,9 @@ class CartActivity : AppCompatActivity() {
                 if (cartList.isNullOrEmpty()) {
                     Toast.makeText(this, "Keranjang masih kosong!", Toast.LENGTH_SHORT).show()
                 } else {
-                    // Lanjutkan proses checkout
-                    Toast.makeText(this, "Berhasil Checkout", Toast.LENGTH_SHORT).show()
-                    // clear cart
-                    cartList.forEach {
-                        viewModel.deleteItem(it.id)
-                    }
+                    val intent = Intent(this, CheckoutActivity::class.java)
+                    startActivity(intent)
+
                 }
             }
         }
